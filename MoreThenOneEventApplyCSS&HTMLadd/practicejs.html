@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+.action{
+	height: 200px;
+	width: 1280px;
+	border-radius: 20px;
+	border-color:royalblue;
+	background-color: blueviolet;
+	padding: 20px;
+	margin: 38px;
+}
+	</style>
+	<title>Jqueery</title>
+</head>
+<body>
+	<div style="text-align: center;">
+	<input class="btn btn-info" name="" id="alert" value="click">
+	<a href="#" class="btn btn-info" id="hide"> Hide</a>
+	<a href="#" class="btn btn-info" id="show"> Show</a>
+	<a href="#"  class="btn btn-info"id="fade2"> fadeOut</a>
+	<a href="#"  class="btn btn-info"id="fade"> fadeIn</a>
+	<a href="#" class="btn btn-info" id="toggle"> toggle</a>
+	<a href="#" class="btn btn-info" id="move"> justify</a>
+	<a href="#" class="btn btn-info" id="move2"> movecenter</a>
+	<a href="#" class="btn btn-info" id="move3"> moveleft</a>
+	<a href="#" class="btn btn-info" id="move4"> moveright</a>
+	</div>
+	
+	<div class="action">
+		Hello Dear, 
+		this Program was written by Prashant Vishwakarma... 
+
+	</div>
+	
+	<script type="text/javascript">
+		// $(document).on('click','#intext1',function(){
+		// 	alert('good bro that one is working');
+		// });
+		// $(document).on('keyup','#intext1',function(){
+		// 	console.log('good bro that is working');
+		// 	alert("good bro")
+		// });
+		// alert("working")
+		$(document).on('click','#alert',function(){
+			alert('Yes, why did you call me.....?😜')
+
+		})
+		$(document).on('click','#hide',function(){
+		// 	alert('Yes, why did call me.....?😜')
+		$('.action').hide()
+	    })
+		$(document).on('click','#show',function(){
+			// alert('Yes, why did call me.....?😜')
+			$('.action').show()
+		})
+		$(document).on('click','#fade',function(){
+			// alert('Yes, why did call me.....?😜')
+			$('.action').fadeIn()
+			
+		})
+		$(document).on('click','#fade2',function(){
+			// alert('Yes, why did call me.....?😜')
+			$('.action').fadeOut()
+
+		})
+		$(document).on('click','#toggle',function(){
+			// alert('Yes, why did call me.....?😜')
+			$('.action').toggle()
+		})
+	     $(document).on('click','#move',function(){
+		 // alert('Yes, why did call me.....?😜')
+		$('.action').css('text-align','center')
+		$('.action').css({'text-align':'center','color':'yellow'})
+		 })
+		$(document).on('click','#move2',function(){
+			// alert('Yes, why did call me.....?😜')
+			$('.action').css('text-align','center')
+		})
+		// $(document).on('click','#move2',function(){
+		// 	alert('Yes, why did call me.....?😜')
+		// })
+		$(document).on('click','#move3',function(){
+			// alert('Yes, why did call me.....?😜')
+			$('.action').css('text-align','left')
+		})
+		$(document).on('click','#move4',function(){
+			// alert('Yes, why did call me.....?😜')
+			$('.action').css('text-align','right')
+		})
+
+	</script>
+</body>
+</html>

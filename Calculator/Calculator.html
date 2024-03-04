@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>Calculator</title>
+	<style>
+		.sizebutton {
+			height: 50px;
+			width: 100px;
+			background: grey;
+			margin: 3px;
+		}
+
+		.div1 {
+			display: flow-root;
+			width: 340px;
+			background: rgba(133, 196, 242, 0.626);
+			border: 2px solid black;
+			margin: 100px 550px;
+			padding: 3px;
+		}
+
+		.input1 {
+			width: 100px;
+			height: 50px;
+			border: 1px solid rgb(32, 29, 34);
+		}
+
+		.active {
+			border: 1px solid rgb(144, 0, 255);
+			border-image:
+				linear-gradient(to,
+					red,
+					rgba(218, 107, 38, 0)) 1 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="text-center div1 ">
+		<input class="input1" type="number" id="input">
+		<input class="input1" type="text" id="input2">
+		<input class="input1" type="number" id="input3"><br>
+
+		<p style="height: 50px; width:310px ; background: white; border: 1px solid red ; margin: 4px 10px;">
+			<span id="output1" style="color: black;"><span id="result"></span>
+		</p>
+
+		<input class="sizebutton" type="button" id="arthmeticPlus" value="+" onclick="arthmetic('+')">
+		<input class="sizebutton" type="button" id="arthmeticMius" value="-" onclick="arthmetic('-')">
+		<input class="sizebutton" type="button" id="arthmeticMulti" value="*" onclick="arthmetic('*')"><br>
+		<input class="sizebutton" type="button" id="arthmeticDivi" value="/" onclick="arthmetic('/')">
+		<input class="sizebutton" type="button" id="arthmeticEqueal" value="=" onclick="arthmetic('=')">
+		<input class="sizebutton" type="button" id="arthmeticClear" value="C" onclick="arthmetic(null)"><br>
+
+		<input class="sizebutton" type="button" id="Num1" value="1" onclick="numEnter(1)">
+		<input class="sizebutton" type="button" id="Num2" value="2" onclick="numEnter(2)">
+		<input class="sizebutton" type="button" id="Num3" value="3" onclick="numEnter(3)"><br>
+		<input class="sizebutton" type="button" id="Num4" value="4" onclick="numEnter(4)">
+		<input class="sizebutton" type="button" id="Num5" value="5" onclick="numEnter(5)">
+		<input class="sizebutton" type="button" id="Num6" value="6" onclick="numEnter(6)"><br>
+		<input class="sizebutton" type="button" id="Num7" value="7" onclick="numEnter(7)">
+		<input class="sizebutton" type="button" id="Num9" value="9" onclick="numEnter(8)">
+		<input class="sizebutton" type="button" id="Num8" value="8" onclick="numEnter(9)"><br>
+		<input class="sizebutton" style="width:310px;" type="button" id="Num0" value="0" onclick="numEnter(0)">
+	</div>
+
+
+	<script>
+		$(document).on('click', '#input', function () {
+			$("#input").addClass('active');
+			$("#input2").removeClass('active');
+			$("#input3").removeClass('active');
+
+		});
+		$(document).on('click', '#input2', function () {
+			$("#input2").addClass('active');
+			$("#input").removeClass('active');
+			$("#input3").removeClass('active');
+
+		});
+		$(document).on('click', '#input3', function () {
+			$("#input3").addClass('active');
+			$("#input2").removeClass('active');
+			$("#input").removeClass('active');
+
+		});
+		function arthmetic(inp1) {
+			console.log(inp1);
+			
+			if (inp1 == null) {
+				if ($("#input").hasClass('active')) {
+					$('#input').val(inp1);
+					return
+					
+				}
+				if ($("#input2").hasClass('active')) {
+					$('#input2').val(inp1);
+					return
+				}
+				if ($("#input3").hasClass('active')) {
+					$('#input3').val(inp1);
+					return
+				}
+				
+				else {
+					$('#input').val(inp1);
+					$('#input2').val(inp1);
+					$('#input3').val(inp1);
+				}
+
+				
+
+			}
+			
+			
+			if (inp1 == '=') {
+				var op = $('#input2').val();
+				var a = $('#input').val();
+				var b = $('#input3').val();
+				$("#input").removeClass('active');
+				$("#input2").removeClass('active');
+				$("#input3").removeClass('active');
+
+
+				switch (op) {
+					case '+':
+						var c = parseInt(a) + parseInt(b);
+						$('#result').html(c);
+						break;
+					case "-":
+						var c = parseInt(a) - parseInt(b);
+						$('#result').html(c);
+						
+						break;
+					case '*':
+
+						var c = parseInt(a) * parseInt(b);
+						$('#result').html(c);
+						
+						break;
+					case '/':
+						var c = parseInt(a) / parseInt(b);
+						$('#result').html(c);
+						
+						break;
+
+				}
+
+			}
+			if (inp1 != null && inp1 != '=') {
+				$('#input2').val(inp1);
+				console.log("Op", np1);
+			}
+
+
+		};
+
+		function numEnter(inp2) {
+			if ($("#input").hasClass('active')) {
+				var a = $("#input").val();
+				var b = a + inp2;
+				$('#input').val(b);
+			} else {
+				var a = $("#input3").val();
+				var b = a + inp2;
+				$('#input3').val(b);
+			}
+			console.log(input2);
+		};
+		
+
+		console.log("Start");
+
+	</script>
+</body>
+
+</html>
